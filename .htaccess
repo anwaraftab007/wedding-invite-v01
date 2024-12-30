@@ -1,0 +1,38 @@
+# HTID:19815322: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+
+php_value display_errors 1
+
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:19815322:
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/$ $1.html.php
+RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.html.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+RewriteRule (.\*)$ /$1/ [R=301,L]
+
+# Gallery Rules
+
+RewriteRule    ^admin/gallery/([A-Za-z0-9-\.]+)/$    admin/gallery/$1.html.php    [NC,L]
+
+# Slider Rules
+
+RewriteRule    ^admin/slider/([A-Za-z0-9-\.]+)/$    admin/slider/$1.html.php    [NC,L]
+
+# Event Details Rules
+
+RewriteRule    ^admin/event/([A-Za-z0-9-\.]+)/$    admin/event/$1.html.php    [NC,L]
+
+# Event Details Rules
+
+RewriteRule    ^admin/date/([A-Za-z0-9-\.]+)/$    admin/date/$1.html.php    [NC,L]
+
+# Blogs Rules
+
+# RewriteRule    ^admin/blogs/([A-Za-z0-9-\.]+)/$    admin/blogs/$1.html.php    [NC,L]
+# RewriteRule    ^admin/blogs/edit-blog/([A-Za-z0-9-\.]+)/?$    admin/blogs/edit-blog.html.php?blog_id=$1    [NC,L]
+
+# RewriteRule    ^admin/newsletter/([A-Za-z0-9-\.]+)/$    admin/newsletter/$1.html.php    [NC,L]

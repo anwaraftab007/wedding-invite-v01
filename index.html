@@ -1,0 +1,476 @@
+<?php
+  include "./includes/connection.inc.php";
+  include "./includes/functions.inc.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanjay & Mamta - Silver Jubilee Celebration</title>
+
+    <meta name="title" content="Sanjay & Mamta - Silver Jubilee Celebration" />
+    <meta name="description" content="Sending a warm welcome to all the loved ones to join us in celebration of our 25th Wedding Anniversary (Silver Jubilee) Celebration." />
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.jpg" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/common.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div class="name">
+        Sanjay & Mamta
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#" class="logo">
+        S&M
+      </a>
+      <div class="links">
+        <a href="#date">DATE & DETAILS</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#location">LOCATION</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-carousel owl-carousel">
+        <?php
+          $sqlSlider = mysqli_query($con, "SELECT * FROM slider");
+
+          while($rowSlider = mysqli_fetch_assoc($sqlSlider)) {
+        ?>
+          <div class="slide" style="background-image: url('../admin/assets/images/slider/<?php echo $rowSlider['image']; ?>');">
+            <div class="content">
+              <h1 class="title"><?php echo $rowSlider['heading']; ?></h1>
+              <p class="details">
+                <?php echo $rowSlider['text']; ?>
+              </p>
+              <a href="#rsvp" class="btn-theme"><?php echo $rowSlider['button_text']; ?></a>
+            </div>
+          </div>
+        <?php
+          }
+        ?>
+      </div>
+      <div class="curve">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 2560 168.6227"
+          enable-background="new 0 0 2560 168.6227"
+          xml:space="preserve"
+        >
+          <g></g>
+          <g>
+            <path
+              d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
+              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="date" id="date">
+      <?php
+        $sqlDate = mysqli_query($con, "SELECT * FROM date");
+        $rowDate = mysqli_fetch_assoc($sqlDate);
+      ?>
+      <div class="content">
+        <h2 class="section-title">Save the Date</h2>
+        <h4 class="section-subtitle">
+          Monday June 20th, 2022- Ashoka Bhawan, Delhi.
+        </h4>
+        <p class="text">
+          On this very date two lives were tied in a bond of togetherness under the oath of fire and all those years it has bore wonderful memories altogether. Celebrating a love as pure and lasting as silver. Please Join us on our Silver Wedding Anniversary on Monday, 20th June, 2022
+        </p>
+        <div class="timer">
+          <div class="single-time">
+            <h5 class="value countdownDays"></h5>
+            <h6 class="title">Days</h6>
+          </div>
+          <div class="single-time">
+            <h5 class="value countdownHours"></h5>
+            <h6 class="title">Hours</h6>
+          </div>
+          <div class="single-time">
+            <h5 class="value countdownMinutes"></h5>
+            <h6 class="title">Minutes</h6>
+          </div>
+          <div class="single-time">
+            <h5 class="value countdownSeconds"></h5>
+            <h6 class="title">Seconds</h6>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <img src="../admin/assets/images/date/<?php echo $rowDate['image']; ?>" alt="" />
+      </div>
+      <div class="curve">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 2560 168.6227"
+          enable-background="new 0 0 2560 168.6227"
+          xml:space="preserve"
+        >
+          <g></g>
+          <g>
+            <path
+              d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
+              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- <section class="love-story" id="love-story">
+      <div class="content">
+        <h2 class="title">Our Love Story</h2>
+        <h4 class="subtitle">The Story of our love and the Wedding</h4>
+      </div>
+      <div class="timeline">
+        <img src="./assets/images/heart-image.png" alt="Couple Image" />
+        <div class="list">
+          <div class="single-item">
+            <div class="left"></div>
+            <div class="heart">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="right">
+              <h4 class="title">First met</h4>
+              <h5 class="date">October 2016</h5>
+            </div>
+          </div>
+          <div class="single-item">
+            <div class="left">
+              <h4 class="title">First Dating</h4>
+              <h5 class="date">April 2017</h5>
+            </div>
+            <div class="heart">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="right"></div>
+          </div>
+          <div class="single-item">
+            <div class="left"></div>
+            <div class="heart">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="right">
+              <h4 class="title">Love began</h4>
+              <h5 class="date">October 2017</h5>
+            </div>
+          </div>
+          <div class="single-item">
+            <div class="left">
+              <h4 class="title">Together since</h4>
+              <h5 class="date">February 2018</h5>
+            </div>
+            <div class="heart">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="right"></div>
+          </div>
+          <div class="single-item">
+            <div class="left"></div>
+            <div class="heart">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="right">
+              <h4 class="title">He proposed</h4>
+              <h5 class="date">September 2018</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="curve">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 2560 168.6227"
+          enable-background="new 0 0 2560 168.6227"
+          xml:space="preserve"
+        >
+          <g></g>
+          <g>
+            <path
+              d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
+              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </section> -->
+
+    <section class="events" id="events">
+      <?php
+        $sqlEvent = mysqli_query($con, "SELECT * FROM event");
+        $rowEvent = mysqli_fetch_assoc($sqlEvent);
+      ?>
+      <div class="content">
+        <h2 class="title">Event Details</h2>
+      </div>
+      <div class="cards-list">
+        <div class="single-card image" style="background-image: url('../admin/assets/images/event/<?php echo $rowEvent['image']; ?>');"></div>
+        <div class="single-card">
+          <h4 class="title"><?php echo $rowEvent['title']; ?></h4>
+          <h6 class="time"><?php echo $rowEvent['time']; ?></h6>
+          <div class="details">
+          Ashoka Bhawan
+          <br />
+          Delhi - 110092
+          <br /><br />
+          9810909076
+          <br />
+          9643372457
+          </div>
+        </div>
+      </div>
+      <div class="curve">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 2560 168.6227"
+          enable-background="new 0 0 2560 168.6227"
+          xml:space="preserve"
+        >
+          <g></g>
+          <g>
+            <path
+              d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
+              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="gift-registry" id="rsvp">
+      <div class="content">
+        <h2 class="title">RSVP</h2>
+        <p class="text">H.M. Bothra & Family</p>
+      </div>
+      <div class="curve">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 2560 168.6227"
+          enable-background="new 0 0 2560 168.6227"
+          xml:space="preserve"
+        >
+          <g></g>
+          <g>
+            <path
+              d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
+              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="content">
+        <h2 class="title">Gallery</h2>
+      </div>
+      <div class="row">
+        <?php
+          $sqlGallery = mysqli_query($con, "SELECT * FROM gallery");
+          $column1 = array();
+          $column2 = array();
+          $column3 = array();
+          $i = 1;
+
+          while($rowGallery = mysqli_fetch_assoc($sqlGallery)) {
+            if($i % 3 == 1) {
+              array_push($column1, $rowGallery['image']);
+            } else if($i % 3 == 2) {
+              array_push($column2, $rowGallery['image']);
+            } else {
+              array_push($column3, $rowGallery['image']);
+            }
+
+            $i++;
+          }
+        ?>
+        <div class="column">
+          <?php
+            foreach ($column1 as $galleryImage) {
+          ?>
+            <img src="../admin/assets/images/gallery/<?php echo $galleryImage; ?>" class="openPopup" alt="Gallery 1" />
+          <?php
+            }
+          ?>
+        </div>
+        <div class="column">
+          <?php
+            foreach ($column2 as $galleryImage) {
+          ?>
+            <img src="../admin/assets/images/gallery/<?php echo $galleryImage; ?>" class="openPopup" alt="Gallery 1" />
+          <?php
+            }
+          ?>
+        </div>
+        <div class="column">
+          <?php
+            foreach ($column3 as $galleryImage) {
+          ?>
+            <img src="../admin/assets/images/gallery/<?php echo $galleryImage; ?>" class="openPopup" alt="Gallery 1" />
+          <?php
+            }
+          ?>
+        </div>
+      </div>
+    </section>
+
+    <section class="just-married" id="just-married">
+      <div class="content">
+        <h2 class="title">Silver Jubilee Celebration </h2>
+        <p class="details">
+          25th Wedding Anniversary is not just an occasion but it's a long going promise and celebrating this occasion is a way to express happiness over all those moments spent together.
+        </p>
+      </div>
+      <div class="curve">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 2560 168.6227"
+          enable-background="new 0 0 2560 168.6227"
+          xml:space="preserve"
+        >
+          <g></g>
+          <g>
+            <path
+              d="M2560,0c0,0-219.6543,165.951-730.788,124.0771c-383.3156-31.4028-827.2138-96.9514-1244.7139-96.9514
+              c-212.5106,0-439,3.5-584.4982,1.5844l0,139.9126h2560V0z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="location" id="location">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.995289824141!2d77.31248599999999!3d28.6598597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb145de91433%3A0xd7785304c81fe937!2sAshoka%20Bhawan!5e0!3m2!1sen!2sin!4v1655237056819!5m2!1sen!2sin" height="400" style="border: 0; width: 100vw;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <footer>
+      <div>Designed & Developed by <strong>Feevin Media</strong></div>
+    </footer>
+
+    <div class="image-popup">
+      <div class="popup-body">
+        <h2 class="title">Invitation</h2>
+        <div class="image">
+          <img />
+        </div>
+        <button type="button" class="closePopup">Continue</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://kit.fontawesome.com/7368c40b21.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/common.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        document.querySelector(".loader").classList.add("hide");
+        document.querySelector("body").style.overflowY = "auto";
+
+        $(".image-popup").addClass("show");
+
+        $(".image-popup").find("img").attr("src", "../assets/images/invitation.jpeg");
+        $(".image-popup").find("img").addClass("invitation");
+        $("body").css("overflow-y", "hidden");
+
+        setTimeout(() => {
+          $(".image-popup").removeClass("show");
+
+          $(".image-popup").find(".title").remove();
+
+          $(".image-popup").find("img").removeClass("invitation");
+          $("body").css("overflow-y", "auto");
+        }, 5000);
+      });
+
+      $(".hero-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+      });
+
+      $(".openPopup").click(function() {
+        $(".image-popup").addClass("show");
+
+        $(".image-popup").find("img").attr("src", $(this).attr("src"));
+        $("body").css("overflow-y", "hidden");
+      });
+
+      $(".closePopup").click(function() {
+        $(".image-popup").find(".title").remove();
+
+        $(".image-popup").removeClass("show");
+        $("body").css("overflow-y", "auto");
+      });
+
+      // Set the date we're counting down to
+      const countDownDate = new Date("June 20, 2022 19:30:00").getTime();
+
+      // Update the count down every 1 second
+      const x = setInterval(function() {
+
+        // Get today's date and time
+        let now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        let distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.querySelector(".countdownDays").innerText = days;
+        document.querySelector(".countdownHours").innerText = hours;
+        document.querySelector(".countdownMinutes").innerText = minutes;
+        document.querySelector(".countdownSeconds").innerText = seconds;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          // 
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1056 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@200;300;400;600;700&family=Water+Brush&family=Alfa+Slab+One&display=swap");
+:root {
+  --theme-clr: #e35d5d;
+  --light-grey-txt: rgba(255, 255, 255, 0.6);
+  --dark-grey-txt: rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+button {
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+body {
+  font-size: 15px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.btn-theme {
+  background-color: var(--theme-clr);
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 7px;
+}
+
+.btn-theme:hover {
+  background-color: #df6e6e;
+}
+
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--theme-clr);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+
+.loader .name {
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.loader .name .bar {
+  position: relative;
+  height: 2px;
+  width: 60px;
+  background-color: grey;
+  margin: 2rem auto 0;
+}
+
+.loader .name .bar::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #fff;
+  -webkit-animation: loader 0.5s linear infinite alternate;
+          animation: loader 0.5s linear infinite alternate;
+}
+
+@-webkit-keyframes loader {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes loader {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.loader.hide {
+  top: -100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2vh 5vw;
+  z-index: 2;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+nav .logo {
+  font-family: "Water Brush", cursive;
+  font-size: 3rem;
+  color: #fff;
+}
+
+nav .links a {
+  color: #fff;
+}
+
+nav .links a:not(:first-child) {
+  margin-left: 1.5rem;
+}
+
+nav.shadow {
+  background-color: #fff;
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+nav.shadow .logo {
+  color: #000;
+}
+
+nav.shadow .links a {
+  color: #000;
+  font-family: 600;
+}
+
+section {
+  padding: 10vh 10vw;
+  overflow-x: hidden;
+}
+
+section .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin: 0 0 3rem;
+}
+
+section .section-subtitle {
+  color: #222222;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: -3rem 0 2rem;
+}
+
+section.hero {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+}
+
+section.hero .hero-carousel .slide {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+section.hero .hero-carousel .slide::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(23, 23, 38, 0.6);
+}
+
+section.hero .hero-carousel .slide .content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 85%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  z-index: 1;
+}
+
+section.hero .hero-carousel .slide .content .title {
+  font-family: "Alfa Slab One", sans-serif;
+  font-size: 5.5rem;
+  font-weight: 400;
+}
+
+section.hero .hero-carousel .slide .content .details {
+  color: var(--light-grey-txt);
+  font-size: 1.5rem;
+  margin: 1rem 0 2rem;
+  font-weight: 600;
+}
+
+section.hero .curve {
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  z-index: 1;
+}
+
+section.hero .curve svg {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+section.date {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+  padding: 10vh 10vw 20vh;
+}
+
+section.date .content .section-subtitle {
+  font-weight: 600;
+}
+
+section.date .content .text {
+  margin: 0 0 2rem;
+  color: #222222;
+  font-size: 1.1rem;
+}
+
+section.date .content .timer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+section.date .content .timer .single-time {
+  border: 1px solid var(--dark-grey-txt);
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+section.date .content .timer .single-time .value {
+  color: var(--theme-clr);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+section.date .content .timer .single-time .title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+section.date .image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+section.date .image img {
+  width: 80%;
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+
+section.date .curve {
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  z-index: 1;
+}
+
+section.date .curve svg path {
+  fill: #fff9f5;
+}
+
+section.love-story {
+  position: relative;
+  background-color: #fff9f5;
+  padding: 10vh 10vw 20vh;
+}
+
+section.love-story .content {
+  text-align: center;
+}
+
+section.love-story .content .title {
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+section.love-story .content .subtitle {
+  color: #222222;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+section.love-story .timeline {
+  width: 470px;
+  margin: 5rem auto 0;
+  text-align: center;
+}
+
+section.love-story .timeline img {
+  width: 250px;
+}
+
+section.love-story .timeline .list {
+  margin-top: 2rem;
+}
+
+section.love-story .timeline .list .single-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 70px 200px;
+      grid-template-columns: 200px 70px 200px;
+  grid-gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+}
+
+section.love-story .timeline .list .single-item:not(:first-child) {
+  margin-top: 5rem;
+}
+
+section.love-story .timeline .list .single-item:not(:first-child) .heart::before {
+  position: absolute;
+  content: "";
+  height: 4rem;
+  width: 1px;
+  top: -4.5rem;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+section.love-story .timeline .list .single-item .heart {
+  position: relative;
+  color: var(--theme-clr);
+  background-color: #fef1ee;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  margin: 0 5px;
+}
+
+section.love-story .timeline .list .single-item .left .title,
+section.love-story .timeline .list .single-item .right .title {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+section.love-story .timeline .list .single-item .left .date,
+section.love-story .timeline .list .single-item .right .date {
+  color: var(--theme-clr);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+section.love-story .timeline .list .single-item .left {
+  text-align: right;
+}
+
+section.love-story .timeline .list .single-item .right {
+  text-align: left;
+}
+
+section.love-story .curve {
+  position: absolute;
+  height: 15vh;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  z-index: 1;
+}
+
+section.love-story .curve svg {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+section.events {
+  position: relative;
+  padding: 10vh 10vw 20vh;
+  background-color: #fff9f5;
+}
+
+section.events .content {
+  text-align: center;
+}
+
+section.events .content .title {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+section.events .content .subtitle {
+  color: #222222;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+section.events .cards-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+section.events .cards-list .single-card {
+  padding: 30px;
+  border: 1px solid var(--dark-grey-txt);
+  border-radius: 10px;
+  min-height: 300px;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+section.events .cards-list .single-card.image {
+  background-position: center;
+  background-size: cover;
+  border: none;
+}
+
+section.events .cards-list .single-card .icon {
+  height: 70px;
+  width: 70px;
+  background-color: #fef7f7;
+  color: var(--theme-clr);
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  margin-bottom: 3rem;
+}
+
+section.events .cards-list .single-card .title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+section.events .cards-list .single-card .time {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+section.events .cards-list .single-card .details {
+  margin-top: 3rem;
+  line-height: 1.7rem;
+}
+
+section.events .cards-list .single-card:hover {
+  background-color: var(--theme-clr);
+  border-color: var(--theme-clr);
+  color: #fff;
+}
+
+section.events .cards-list .single-card:hover .icon {
+  background-color: #e56e6e;
+  color: #fff;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+section.events .curve {
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  z-index: 1;
+}
+
+section.events .curve svg path {
+  fill: var(--theme-clr);
+}
+
+section.gift-registry {
+  position: relative;
+  background-color: var(--theme-clr);
+  padding: 10vh 10vw 25vh;
+  overflow: hidden;
+}
+
+section.gift-registry::after {
+  position: absolute;
+  content: "";
+  background-image: url("../images/pattern.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+section.gift-registry .content {
+  color: #fff;
+  text-align: center;
+}
+
+section.gift-registry .content .title {
+  font-size: 8rem;
+}
+
+section.gift-registry .content .text {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+section.gift-registry .curve {
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  z-index: 1;
+}
+
+section.gift-registry .curve svg {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+section.gallery .content .title {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+section.gallery .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+section.gallery .row .column {
+  -webkit-box-flex: 33.33%;
+      -ms-flex: 33.33%;
+          flex: 33.33%;
+  max-width: 33.33%;
+  padding: 0 4px;
+}
+
+section.gallery .row .column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  cursor: pointer;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+section.gallery .row .column img:hover {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+section.just-married {
+  position: relative;
+  background-image: url("../images/just-married.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+section.just-married::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(23, 23, 38, 0.6);
+}
+
+section.just-married .content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 85%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  z-index: 1;
+}
+
+section.just-married .content .title {
+  font-size: 5.5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+
+section.just-married .content .details {
+  color: var(--light-grey-txt);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 1rem 0 2rem;
+  width: 70%;
+  text-align: justify;
+}
+
+section.just-married .curve {
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  z-index: 1;
+}
+
+section.just-married .curve svg {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+section.location {
+  padding: 10vh 0 0;
+}
+
+footer {
+  padding: 5vh 5vw;
+  text-align: center;
+}
+
+.image-popup {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+.image-popup.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.image-popup .popup-body {
+  text-align: center;
+  padding: 0;
+}
+
+.image-popup .popup-body .title {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.image-popup .popup-body .image img {
+  height: 70vh;
+  width: auto;
+}
+
+.image-popup .popup-body button {
+  display: inline-block;
+  padding: 10px 30px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 7px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.image-popup .popup-body button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@media screen and (max-width: 800px) {
+  section.gallery .row .column {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .loader {
+    padding: 0 1rem;
+  }
+  .loader .name {
+    font-size: 2rem;
+  }
+  nav {
+    height: 7vh;
+    padding: 20px 1rem;
+  }
+  nav .logo {
+    font-size: 1.7rem;
+  }
+  nav .links {
+    display: none;
+  }
+  section {
+    padding: 10vh 1rem;
+  }
+  section .section-title {
+    font-size: 2.5rem;
+  }
+  section .section-subtitle {
+    font-size: 1.2rem;
+    margin: -2rem 0 2rem;
+  }
+  section.hero {
+    height: 60vh;
+    overflow-y: hidden;
+  }
+  section.hero .hero-carousel .slide {
+    height: 60vh;
+    width: 100vw;
+    padding: 0;
+    overflow-y: hidden;
+  }
+  section.hero .hero-carousel .slide .content {
+    width: 100%;
+    text-align: center;
+    overflow-y: hidden;
+  }
+  section.hero .hero-carousel .slide .content .title {
+    font-size: 2.5rem;
+  }
+  section.hero .hero-carousel .slide .content .details {
+    font-size: 1.2rem;
+  }
+section.hero .curve {
+  display: none;
+}
+  section.date {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    padding: 10vh 1rem;
+  }
+  section.date .content .text {
+    font-size: 1rem;
+  }
+  section.date .content .timer {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+  section.date .image {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  section.love-story {
+    padding: 10vh 1rem;
+  }
+  section.love-story .content .title {
+    font-size: 2.5rem;
+  }
+  section.love-story .content .subtitle {
+    font-size: 1.1rem;
+  }
+  section.love-story .timeline {
+    width: 100%;
+  }
+  section.love-story .timeline img {
+    width: 220px;
+  }
+  section.love-story .timeline .list .single-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  section.love-story .timeline .list .single-item:not(:first-child) {
+    margin-top: 5rem;
+  }
+  section.love-story .timeline .list .single-item .heart {
+    width: 20%;
+    height: 50px;
+    width: 50px;
+    font-size: 1.1rem;
+    margin: 0 auto;
+  }
+  section.love-story .timeline .list .single-item .left,
+  section.love-story .timeline .list .single-item .right {
+    width: 40%;
+  }
+  section.love-story .timeline .list .single-item .left .title,
+  section.love-story .timeline .list .single-item .right .title {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+  section.love-story .timeline .list .single-item .left .date,
+  section.love-story .timeline .list .single-item .right .date {
+    font-size: 0.9rem;
+  }
+  section.love-story .curve {
+    position: absolute;
+    height: 15vh;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    z-index: 1;
+  }
+  section.love-story .curve svg {
+    -webkit-filter: invert(1);
+            filter: invert(1);
+  }
+  section.events {
+    padding: 10vh 1rem;
+  }
+  section.events .content .title {
+    font-size: 2.5rem;
+  }
+  section.events .cards-list {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+  }
+  section.events .cards-list .single-card {
+    padding: 30px;
+  }
+  section.events .cards-list .single-card.image {
+    height: 300px;
+  }
+  section.events .cards-list .single-card .icon {
+    height: 60px;
+    width: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  section.events .cards-list .single-card .details {
+    margin-top: 2rem;
+  }
+  section.gift-registry {
+    padding: 10vh 1rem 15vh;
+  }
+  section.gift-registry .content {
+    width: 100%;
+  }
+  section.gift-registry .content .title {
+    font-size: 3rem;
+  }
+  section.gift-registry .content .text {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  section.gallery .content .title {
+    font-size: 2.5rem;
+  }
+  section.gallery .row {
+    margin-top: 2rem;
+  }
+  section.just-married {
+    height: 60vh;
+  }
+  section.just-married .content {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 85%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #fff;
+    z-index: 1;
+  }
+  section.just-married .content .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  section.just-married .content .details {
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin: 1rem 0 2rem;
+    width: 100%;
+  }
+  footer {
+    padding: 5vh 1rem;
+  }
+  .image-popup .popup-body {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .image-popup .popup-body .title {
+    font-size: 1.7rem;
+  }
+  .image-popup .popup-body .image img {
+    width: 100%;
+    height: auto;
+  }
+  .image-popup .popup-body .image img.invitation {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section.gallery .row .column {
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    max-width: 100%;
+  }
+}
+/*# sourceMappingURL=common.css.map */
